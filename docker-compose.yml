@@ -1,0 +1,36 @@
+ # docker-compose.yml
+
+ version: '3'
+ services:
+    fdp:
+        image: fairdata/fairdatapoint:1.15
+        volumes:
+            - ./application.yml:/fdp/application.yml:ro
+
+    fdp-client:
+        image: fairdata/fairdatapoint-client:1.15
+        ports:
+            - 80:80
+        environment:
+            - FDP_HOST=fdp
+
+    mongo:
+        image: mongo:4.0.12
+        ports:
+            - 27017:27017
+        volumes:
+            - ./mongo/data:/data/db
+
+    graphdb:
+        image: khaller/graphdb-free:10.0.0
+        command: ["--GDB_HEAP_SIZE", "${GDB_HEAP_SIZE}"]
+        ports:
+          - 127.0.0.1:7270:7200
+        volumes:
+          - "./config:/repository.init/pokemon:rw"
+          - "./data/poke-a.nq:/repository.init/pokemon/toLoad/poke-a.nq:ro"
+          - "./data/pokemon.ttl:/ontology/pokemon.ttl:ro"
+          - "./data/foaf.rdf:/ontology/foaf.rdf:ro"
+          - "./db/data:/opt/graphdb/data:rw"
+          - "./db/logs:/opt/graphdb/logs:rw"
+          - "./db/work:/opt/graphdb/work:rw"
