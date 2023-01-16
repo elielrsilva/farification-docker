@@ -1,8 +1,5 @@
-instance:
-    clientUrl: http://localhost:8080
-
 repository:
     type: 4
     graphDb:
         url: http://graphdb:7200
-        repository: pokemon
+        repository: busdatapoint

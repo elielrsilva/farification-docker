@@ -5,8 +5,8 @@
 @prefix owlim: <http://www.ontotext.com/trree/owlim#>.
 
 [] a rep:Repository ;
-    rep:repositoryID "pokemon" ;
-    rdfs:label "Pokemon" ;
+    rep:repositoryID "busdatapoint" ;
+    rdfs:label "Busdatapoint" ;
     rep:repositoryImpl [
         rep:repositoryType "graphdb:SailRepository" ;
         sr:sailImpl [
@@ -14,8 +14,8 @@
             owlim:entity-index-size "10000000" ;
 
             owlim:ruleset "owl2-rl-optimized" ;
-            owlim:defaultNS "https://pokemonkg.org/ontology#;http://www.w3.org/1999/02/22-rdf-syntax-ns#;https://www.w3.org/2000/01/rdf-schema#;http://xmlns.com/foaf/0.1/;http://www.w3.org/ns/dcat#;http://www.w3.org/ns/prov#;" ;
-            owlim:imports "file:///ontology/pokemon.ttl;https://www.w3.org/1999/02/22-rdf-syntax-ns.ttl;https://www.w3.org/2000/01/rdf-schema.ttl;file:///ontology/foaf.rdf;https://www.w3.org/ns/dcat2.rdf;https://www.w3.org/ns/prov.rdf;" ;
+            owlim:defaultNS "http://127.0.0.1:3333/#;http://www.w3.org/1999/02/22-rdf-syntax-ns#;https://www.w3.org/2000/01/rdf-schema#;http://xmlns.com/foaf/0.1/;http://www.w3.org/ns/dcat#;http://www.w3.org/ns/prov#;" ;
+            owlim:imports "file:///ontology/vaigem_onibus-csv.ttl;https://www.w3.org/1999/02/22-rdf-syntax-ns.ttl;https://www.w3.org/2000/01/rdf-schema.ttl;file:///ontology/foaf.rdf;https://www.w3.org/ns/dcat2.rdf;https://www.w3.org/ns/prov.rdf;" ;
 
         ]
 
